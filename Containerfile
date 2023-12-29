@@ -4,7 +4,7 @@ MAINTAINER LSIT Systems <lsitops@lsit.ucsb.edu>
 
 USER root
 
-#RUN mamba install -y astropy <libraries>
+RUN mamba install -y netcdf4 cartopy
 
 #RUN pip install <libraries>
 
