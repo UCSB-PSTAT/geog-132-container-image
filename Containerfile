@@ -10,7 +10,7 @@ RUN apt update -qq && \
     apt-get clean
 
 RUN mamba install -y netcdf4 cartopy gdal proj libgdal krb5 && \
-    mamba upgrade -y sqlite && \
+    mamba update -y sqlite && \
     mamba clean --all -y
 
 USER $NB_USER
