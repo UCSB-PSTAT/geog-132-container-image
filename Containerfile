@@ -9,8 +9,8 @@ RUN apt update -qq && \
     apt install -y unzip && \
     apt-get clean
 
-RUN mamba install -y netcdf4 cartopy gdal proj
-
-#RUN pip install <libraries>
+RUN mamba install -y netcdf4 cartopy gdal proj libgdal krb5 && \
+    mamba update -y sqlite && \
+    mamba clean --all -y
 
 USER $NB_USER
