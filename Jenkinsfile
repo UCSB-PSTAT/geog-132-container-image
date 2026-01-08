@@ -30,7 +30,12 @@ pipeline {
                 }
                 stage('Test') {
                     steps {
-                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import netCDF4; import numpy; import cartopy; import matplotlib; import pandas; from osgeo import gdal"'
+                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import cartopy"'
+                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import netCDF4"'
+                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import matplotlib"'
+                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import numpy"'
+                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "from osgeo import gdal"'
+                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import pandas"'
                         sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME which proj'
                         sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME which unzip'
 			sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME sh -c "pip install elevation && eio selfcheck"'
